@@ -1,0 +1,48 @@
+<!-- Its just extending layout html which is common between pages-->
+{% extends "layout.html" %}
+{% block content %}
+	<h1>Movie IMDB Ratings</h1>
+  <p>Just Search movie and get that movie's IMDB Ratings with such details</p>
+  <div class="content-section">
+    <form method="POST" action="">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Search Movie's Ratings</legend>
+            <div class="form-group">
+                {{ form.movie_name.label(class="form-control-label") }}
+                {% if form.movie_name.errors %}
+                    {{ form.movie_name(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.movie_name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.movie_name(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.search(class="btn btn-outline-info") }}
+        </div>
+    </form>
+    {% if result %}
+        <div class="box">
+            <article class="media">
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <span class="title">Movie : {{ result[0] }}</span>
+                            <br>
+                            <span class="subtitle">Release Date : {{ result[1] }}</span>
+                            <br> 
+                            <span class="subtitle">Genre : {{ result[2] }}</span>
+                            <br>
+                            <span class="subtitle">IMDB Ratings : {{ result[3] }}/10</span>
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+      {% endif %}
+</div>
+{% endblock %}

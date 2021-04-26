@@ -1,0 +1,43 @@
+<!-- Its just extending layout html which is common between pages-->
+{% extends "layout.html" %}
+{% block content %}
+	<h1>Flickr Photos</h1>
+  <p>Search Photos by tagged name</p>
+  <div class="content-section">
+    <form method="POST" action="">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Search Images on Flickr by tagged name</legend>
+            <div class="form-group">
+                {{ form.tag.label(class="form-control-label") }}
+                {% if form.tag.errors %}
+                    {{ form.tag(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.tag.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.tag(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.search(class="btn btn-outline-info") }}
+        </div>
+    </form>
+    {% if result %}
+        <div class="box">
+            <article class="media">
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <span class="title">{{ result[0] }}</span>
+                            <br>
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+      {% endif %}
+</div>
+{% endblock %}
