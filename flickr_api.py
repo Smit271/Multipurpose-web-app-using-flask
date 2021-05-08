@@ -5,7 +5,7 @@ import webbrowser
 class Flickr():
 	def __init__(self, tags):
 		self.tags = tags
-		self.flickr_key = '5e3ee4a25e8fc4300b86015dc33a8502'
+		self.flickr_key = 'YOUR_API_KEY'
 
 	def get_photo(self):
 
