@@ -14,7 +14,7 @@ class Ratings():
     # method to extract imdb id to get imdb ratings
     def id_extractor(self):
         params_dict = {}
-        params_dict['apikey'] = 'e761e97'
+        params_dict['apikey'] = 'Your_API_key'
         params_dict['s'] = self.name
         res = re.get(self.baseurl , params=params_dict)
         return res.json()['Search'][0]['imdbID']
