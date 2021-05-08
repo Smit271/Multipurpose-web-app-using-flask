@@ -9,9 +9,8 @@ from flickr_api import Flickr
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'asdv1asdc91v9ads8vcs5xc'
+app.config['SECRET_KEY'] = 'SECRET_KEY'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///subscribers.db'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://Smit271:Krishna@123@Smit271.mysql.pythonanywhere-services.com/Smit271$subscriptions'
 db = SQLAlchemy(app)
 
 
